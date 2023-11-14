@@ -1,0 +1,425 @@
+/* ここから下に記載していく */
+
+/* header */
+header {
+    position: sticky;
+    top: 0;
+    /* position:stickyには「top」を設定する必要あり */
+    z-index: 999;
+    /* z-indexはボックスの重なりを指定するもの */
+    background-color: white;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.menu_group {
+    display:flex; justify-content: space-between;align-items: center;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* メニューが画面縮小した際にはみ出してしまう。直らない */
+/* ロゴをクリックしたら画面上部に遷移したい。aタグを設定するとロゴが小さくなる。加えて遷移リンク先の設定も要確認 */
+.menu_item5 {
+    font-size: clamp(10px,1.75vw,21px);
+    /* 文字を画面サイズに合わせて調整 */
+    display: flex;
+    margin-top: 36px;
+    margin-bottom: 36px;
+    margin-right: 50px;
+    /* 固定ヘッダーのリンク先重複の調整につきtop/bottomを50pxから36pxへ見直し */
+}
+.menu_item {
+    /* margin-left: 50px; */
+    margin-left: clamp(5px,100vw,50px);
+}
+.menu_a {
+    text-decoration: none;
+    color: #222222;
+    /* aタグの見た目を整える */
+}
+.menu_a:hover {
+    opacity: 0.5;
+}
+/* ヘッダー全体が画面幅に合わせてサイズ調整されるとbestだが断念 */
+
+/* body */
+body {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* cheeseIMG */
+.cheese {
+    position: relative;
+    /* 文字を図中央に乗せるため親要素の基準を設定する */
+}
+.cheeseimg {
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+.cheese_p {
+    position: absolute;
+    /* 親要素を基準に子要素の絶対配置を規定する */
+    display: flex;flex-direction: column;align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+}
+.cheese_p01 {
+    font-size: 36PX;
+    white-space: nowrap;
+    /* 改行阻止コード */
+    padding-bottom: 30px;
+}
+.cheese_p02 {
+    font-size: 28px;
+    white-space: nowrap;
+    /* 改行阻止コード */
+}
+
+/* ABOUT */
+#title_about {
+    color: #ffd61a;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 100px;
+    /* 固定ヘッダーのリンク先重複の調整につき60pxから100pxへ見直し */
+    margin-bottom: 30px;
+}
+.ab_01 {
+    font-size: 18px;
+    color: #222222;
+    text-align: center;
+    margin-bottom: 60px;
+}
+.ab_02 {
+    font-size: 16px;
+    color: #222222;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.ab_03 {
+    font-size: 16px;
+    color: #222222;
+    text-align: center;
+    line-height: 2.0;
+}
+.loop_img {
+    display: flex;
+    overflow: hidden;
+}
+.ab_img_all {
+    margin-top: 80px;
+    display: flex;justify-content: center;
+    /* 画像がピッタリくっつかない（隙間が消せない） */
+    width: 100vw;
+    animation: slideAnimation 40s linear infinite;
+}
+@keyframes slideAnimation {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+.ab_img {
+    width: calc(100vw / 4);
+    /* calc()で４分割してみる */
+}
+
+/* COURSE */
+#title_course {
+    color: #222222;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 100px;
+    /* 固定ヘッダーのリンク先重複の調整につき60pxから100pxへ見直し */
+    margin-bottom: 30px;
+}
+.course_00 {
+    margin-bottom: 60px;
+}
+.cou_p00 {
+    font-size: 16px;
+    color: #222222;
+    text-align: center;
+    line-height: 2.0;
+}
+.course_01,.course_02,.course_03 {
+    /* display: flex; */
+    display: table;
+    /* vertical alignを使用するためにflexではなくtableを使用 */
+}
+.course_img {
+    max-width: 600px;
+    /* 画面幅サイズで調整したいが50vwとすると1200pxを超えてしまう。親要素1200pxを基準とした50%も反応しない */
+}
+.course_p01,.course_p03 {
+    max-width: 600px;
+    height: auto;
+    /* 画面幅を小さくすると縦にはみ出てしまう */
+    box-sizing: border-box;
+    background-color: #fafafa;
+    padding-left: 50px;
+    padding-right: 170px;
+    /* なんか正しい設定な気がしない */
+    display: table-cell;
+    vertical-align: middle;
+    /* 上記2コードで、横並びにして高さ中央寄せ */
+}
+.cou_p01_01,.cou_p02_01,.cou_p03_01 {
+    box-sizing: content-box;
+    width: 480px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+.cou_p01_02,.cou_p02_02,.cou_p03_02 {
+    box-sizing: content-box;
+    max-width: 480px;
+    font-size: 16px;
+    line-height: 2.0;
+}
+.course_p02 {
+    max-width: 600px;
+    height: auto;
+    box-sizing: border-box;
+    background-color: #fafafa;
+    padding-left: 170px;
+    padding-right: 50px;
+    display: table-cell;
+    vertical-align: middle;
+}
+/* 画面幅に合わせてサイズ調整されるとbestだが断念 */
+
+/* NEWS */
+#title_news {
+    color: #ffd61a;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 100px;
+    /* 固定ヘッダーのリンク先重複の調整につき60pxから100pxへ見直し */
+    margin-bottom: 30px;
+}
+.nw_00 {
+    font-size: 18px;
+    color: #222222;
+    text-align: center;
+    margin-bottom: 60px;
+}
+.nw_all {
+    display:flex;justify-content: center;
+    margin-bottom: 60px;
+}
+.nw_img {
+    width: 300px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+.nw_p01 {
+    width: 300px;
+    margin-right: 15px;
+    margin-left: 15px;
+    padding-top: 30px;
+}
+.nw_p02 {
+    padding-bottom: 24px;
+    font-size: 18px;
+}
+.nw_p03 {
+    font-size: 16px;
+    line-height: 1.5;
+}
+.nw_01:hover,.nw_02:hover,.nw_03:hover {
+    opacity: 0.5;
+}
+
+/* MORE */
+.more {
+    font-size: 18px;
+    color: white;
+    width: 300px;
+    height: 60px;
+    background-color: #ffd61a;
+    text-align: center;
+    line-height: 60px;
+    margin: auto;
+    margin-bottom: 60px;
+}
+.more:hover {
+    opacity: 0.5;
+}
+
+/* ACCESS */
+.access_all {
+    background-color: #fafafa;
+    padding-bottom: 60px;
+}
+#title_access {
+    font-size: 24px;
+    font-weight: bold;
+    color: #222222;
+    text-align: center;
+    padding-top: 100px;
+    /* 固定ヘッダーのリンク先重複の調整につき60pxから100pxへ見直し */
+    padding-bottom: 30px;
+}
+.ac_00 {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+.table_01 {
+    margin: 60px auto auto auto;
+}
+.ac_th,.ac_td {
+    text-align: left;
+    font-size: 16px;
+    line-height: 30px;
+    height: 50px;
+}
+.ac_th {
+    min-width: 160px;
+}
+
+/* COTACT */
+.con_all {
+    text-align: center;
+}
+#title_contact {
+    font-size: 24px;
+    font-weight: bold;
+    padding-top: 100px;
+    /* 固定ヘッダーのリンク先重複の調整につき60pxから100pxへ見直し */
+    margin-bottom: 30px;
+}
+.con_p01 {
+    font-size: 18px;
+    margin-bottom: 60px;
+}
+.con_p02,.con_p03 {
+    font-size: 16px;
+    line-height: 1.5;
+}
+.con_p03 {
+    padding-top: 30px;
+    padding-bottom: 70px;
+}
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+.con_table {
+    margin-bottom: 30px;
+}
+.con_th,.con_th_01,.con_th_02,.con_td,.con_td_01,.con_td_02 {
+    border: 1px solid #bfbfbf;
+}
+.con_th,.con_th_01,.con_th_02 {
+    border-left: none;
+}
+.con_td,.con_td_01,.con_td_02 {
+    border-right: none;
+}
+.con_th,.con_th_01 {
+    font-size: 16px;
+    text-align: left;
+    width: 240px;
+    height: 36px;
+    padding-left: 16px;
+    padding-right: 64px;
+}
+.con_th_01 {
+    vertical-align: top;
+    padding-top: 8px;
+    line-height: 1.2;
+}
+.con_th_02{
+    font-size: 16px;
+    text-align: left;
+    vertical-align: top;
+    width: 240px;
+    height: 36px;
+    padding-top: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+.con_td {
+    width: 400px;
+}
+.con_td,.con_td_01,.con_td_02 {
+    padding: 8px;
+    text-align: left;
+}
+.form_text {
+    font-size: 16px;
+    width: 328px;
+    height: 36px;
+    border: 1px solid #bfbfbf;
+}
+.form_textarea {
+    font-size: 16px;
+    width: 328px;
+    height: 120px;
+    border: 1px solid #bfbfbf;
+}
+select, option {
+    border: 1px solid #bfbfbf;
+}
+.select {
+    font-size: 16px;
+    color: #707070;
+    width: 336px;
+    height: 36px;
+}
+.ch_box_all {
+    margin-top: 8px;
+}
+.ch_box {
+    font-size: 14px;
+    /* 見た目的に14pxに調整 */
+    display: block;
+    text-align: left;
+    margin-bottom: 24px;
+}
+#multiple {
+    font-size: 12px;
+    color: #707070;
+    line-height: 2.0;
+}
+input[type="checkbox"] {
+    margin-right: 16px;
+}
+#submit {
+    font-size: 18px;
+    color: white;
+    width: 300px;
+    height: 60px;
+    background-color: #ffd61a;
+    text-align: center;
+    line-height: 60px;
+    margin: auto;
+    margin-bottom: 140px;
+    border: 0;
+}
+#submit:hover {
+    opacity: 0.5;
+}
+
+/* footer */
+footer {
+    position: sticky;
+    background-color: #707070;
+    color: white;
+    padding: 30px 0 30px 0;
+    text-align: center;
+}
